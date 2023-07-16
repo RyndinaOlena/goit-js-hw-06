@@ -12,9 +12,11 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const createGallary = images.map((img) => {
-  const linkEl = document.createElement('li')
-  linkEl.insertAdjacentHTML('afterbegin', `<img src="${img.url}" alt="${img.alt}" />`)
-  return linkEl
-})
-const gallaryEl = document.querySelector('.gallery').append(...createGallary)
+const gallaryEl = document.querySelector('.gallery')
+// const createGallary = images.map((img) => {
+//   const linkEl = imgallaryEl.insertAdjacentHTML('afterbegin', `<li><img src="${img.url}" alt="${img.alt}" /></li>`)
+//   return linkEl
+// })
+// gallaryEl.append(...createGallary)
+const createGallary = images.map(img => `<li><img src="${img.url}" alt="${img.alt}" /></li>`).join('')
+gallaryEl.insertAdjacentHTML('afterbegin', createGallary)
