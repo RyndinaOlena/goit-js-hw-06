@@ -2,22 +2,22 @@ const formEl = document.querySelector('.login-form');
 formEl.addEventListener('submit', sendForm)
 function sendForm(event) {
     event.preventDefault();
-    formEl.reset();
+
 
     const formElements = event.currentTarget.elements
-    const mailEl = formElements.email.value
-    const passwordEl = formElements.password.value
+    const mail = formElements.email.value
+    const password = formElements.password.value
 
     const formData = {
-        mailEl,
-        passwordEl,
+        mail,
+        password,
     }
 
-    if (mailEl && passwordEl === '') {
-        alert('error')
-        return
+    if (mail === "" || password === '') {
+        return alert('error')
     } else {
         console.log(formData)
+        formEl.reset();
     }
 }
 
